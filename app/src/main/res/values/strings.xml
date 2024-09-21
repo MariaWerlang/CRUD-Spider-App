@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CRUD DA ARANHA</string>
+    <string name="attention">Atenção</string>
+    <string name="back_button">Voltar</string>
+    <string name="delete">Deletar</string>
+    <string name="delete_question">Tem certeza que quer deletar?</string>
+    <string name="no_miranha_description">Oops!\nSem itens.\nToque em + para adicionar.</string>
+    <string name="edit_miranha_title">Editar Miranha</string>
+    <string name="miranha">Nome Miranha</string>
+    <string name="miranha_detail_title">Detalhes do Miranha</string>
+    <string name="miranha_entry_title">Adicionar Miranha</string>
+    <string name="miranha_name_req">Nome da Aranha*</string>
+    <string name="miranha_earth_req">Terra da Aranha*</string>
+    <string name="earth">Terra</string>
+    <string name="no">Não</string>
+    <string name="quantity_in_stock">Quantidade em estoque</string>
+    <string name="in_stock">Terra %d</string>
+    <string name="save_action">Salvar</string>
+    <string name="sell">Vender</string>
+    <string name="yes">Sim</string>
+    <string name="required_fields">*campos necessários</string>
+</resources>
