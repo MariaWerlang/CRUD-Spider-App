@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -29,7 +30,11 @@ import com.example.crudapp.R
 import com.example.crudapp.TopAppBar
 import com.example.crudapp.ui.AppViewModelProvider
 import com.example.crudapp.ui.navigation.Destination
+import com.example.crudapp.ui.theme.Aranha88
 import com.example.crudapp.ui.theme.CRUDAppTheme
+import com.example.crudapp.ui.theme.Teia
+import com.example.crudapp.ui.theme.Venom
+import com.example.crudapp.ui.theme.Venom2
 import kotlinx.coroutines.launch
 import java.util.Currency
 import java.util.Locale
@@ -56,7 +61,9 @@ fun MiranhaEntryScreen(
                 canNavigateBack = canNavigateBack,
                 navigateUp = onNavigateUp
             )
-        }
+        },
+        contentColor = Teia,
+        containerColor = Venom,
     ) { innerPadding ->
         MiranhaEntryBody(
             miranhaUiState = viewModel.miranhaUiState,
@@ -99,9 +106,18 @@ fun MiranhaEntryBody(
             onClick = onSaveClick,
             enabled = miranhaUiState.isEntryValid,
             shape = MaterialTheme.shapes.small,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonColors(
+                containerColor = Aranha88,
+                contentColor = Teia,
+                disabledContentColor = Teia,
+                disabledContainerColor = Aranha88
+            )
         ) {
-            Text(text = stringResource(R.string.save_action))
+            Text(
+                text = stringResource(R.string.save_action),
+                color = Teia
+            )
         }
     }
 }
@@ -122,9 +138,17 @@ fun MiranhaInputForm(
             onValueChange = { onValueChange(miranhaDetails.copy(name = it)) },
             label = { Text(stringResource(R.string.miranha_name_req)) },
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-                unfocusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-                disabledContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+                focusedContainerColor = Venom2,
+                unfocusedContainerColor = Venom2,
+                disabledContainerColor = Venom2,
+                focusedTextColor = Aranha88,
+                focusedLabelColor = Aranha88,
+                focusedBorderColor = Aranha88,
+                focusedPlaceholderColor = Aranha88,
+                unfocusedTextColor = Aranha88,
+                unfocusedPlaceholderColor = Aranha88,
+                unfocusedLabelColor = Aranha88,
+                unfocusedBorderColor = Aranha88,
             ),
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -135,9 +159,17 @@ fun MiranhaInputForm(
             onValueChange = { onValueChange(miranhaDetails.copy(earth = it)) },
             label = { Text(stringResource(R.string.miranha_name_req)) },
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-                unfocusedContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-                disabledContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+                focusedContainerColor = Venom2,
+                unfocusedContainerColor = Venom2,
+                disabledContainerColor = Venom2,
+                focusedTextColor = Aranha88,
+                focusedLabelColor = Aranha88,
+                focusedBorderColor = Aranha88,
+                focusedPlaceholderColor = Aranha88,
+                unfocusedTextColor = Aranha88,
+                unfocusedPlaceholderColor = Aranha88,
+                unfocusedLabelColor = Aranha88,
+                unfocusedBorderColor = Aranha88,
             ),
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,

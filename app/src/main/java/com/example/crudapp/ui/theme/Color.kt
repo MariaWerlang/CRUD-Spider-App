@@ -11,3 +11,6 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val Aranha88 = Color(0xFFE75A5A)
+val Venom = Color(0xFF100C0C)
+val Venom2 = Color(0xFF282121)
+val Teia = Color(0xFFFFE8E8)

@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -39,7 +40,11 @@ import com.example.crudapp.TopAppBar
 import com.example.crudapp.data.Miranha
 import com.example.crudapp.ui.AppViewModelProvider
 import com.example.crudapp.ui.navigation.Destination
+import com.example.crudapp.ui.theme.Aranha88
 import com.example.crudapp.ui.theme.CRUDAppTheme
+import com.example.crudapp.ui.theme.Teia
+import com.example.crudapp.ui.theme.Venom
+import com.example.crudapp.ui.theme.Venom2
 
 object HomeDestination : Destination {
     override val route = "home"
@@ -69,15 +74,20 @@ fun HomeScreen(
                 scrollBehavior = scrollBehavior
             )
         },
+        contentColor = Teia,
+        containerColor = Venom,
         floatingActionButton = {
             FloatingActionButton(
                 onClick = navigateToMiranhaEntry,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
+                contentColor = Teia,
+                containerColor = Aranha88
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = stringResource(R.string.miranha_entry_title)
+                    contentDescription = stringResource(R.string.miranha_entry_title),
+                    tint = Teia
                 )
             }
         },
@@ -108,6 +118,8 @@ private fun HomeBody(
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(contentPadding),
+                color = Teia
+
             )
         } else {
             InventoryList(
@@ -146,7 +158,13 @@ private fun InventoryMiranha(
 ) {
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardColors(
+            containerColor = Venom2,
+            contentColor = Teia,
+            disabledContentColor = Teia,
+            disabledContainerColor = Venom2
+        )
     ) {
         Column(
             modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
@@ -158,11 +176,13 @@ private fun InventoryMiranha(
                 Text(
                     text = miranha.name,
                     style = MaterialTheme.typography.titleLarge,
+                    color = Teia
                 )
             }
             Text(
                 text = stringResource(R.string.in_stock, miranha.earth),
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
+                color = Teia
             )
         }
     }
@@ -173,7 +193,7 @@ private fun InventoryMiranha(
 fun HomeBodyPreview() {
     CRUDAppTheme {
         HomeBody(listOf(
-            Miranha(1, "Game", 20), Miranha(2, "Pen",  30), Miranha(3, "TV",  50)
+            Miranha(1, "Spider-Gwen", 20), Miranha(2, "Spider-Man",  30), Miranha(3, "Werewolf Spider-Man",  50)
         ), onMiranhaClick = {})
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -44,7 +45,11 @@ import com.example.crudapp.TopAppBar
 import com.example.crudapp.data.Miranha
 import com.example.crudapp.ui.AppViewModelProvider
 import com.example.crudapp.ui.navigation.Destination
+import com.example.crudapp.ui.theme.Aranha88
 import com.example.crudapp.ui.theme.CRUDAppTheme
+import com.example.crudapp.ui.theme.Teia
+import com.example.crudapp.ui.theme.Venom
+import com.example.crudapp.ui.theme.Venom2
 import kotlinx.coroutines.launch
 
 object MiranhaDetailsDestination : Destination {
@@ -73,16 +78,22 @@ fun MiranhaDetailsScreen(
                 canNavigateBack = true,
                 navigateUp = navigateBack
             )
-        }, floatingActionButton = {
+        },
+        contentColor = Teia,
+        containerColor = Venom,
+        floatingActionButton = {
             FloatingActionButton(
                 onClick = { navigateToEditMiranha(uiState.value.miranhaDetails.id) },
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
+                contentColor = Teia,
+                containerColor = Aranha88
 
             ) {
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = stringResource(R.string.edit_miranha_title),
+                    tint = Teia
                 )
             }
         }, modifier = modifier
@@ -125,9 +136,18 @@ private fun MiranhaDetailsBody(
         OutlinedButton(
             onClick = { deleteConfirmationRequired = true },
             shape = MaterialTheme.shapes.small,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonColors(
+                containerColor = Aranha88,
+                contentColor = Teia,
+                disabledContentColor = Teia,
+                disabledContainerColor = Aranha88
+            )
         ) {
-            Text(stringResource(R.string.delete))
+            Text(
+                text = stringResource(R.string.delete),
+                color = Teia
+            )
         }
         if (deleteConfirmationRequired) {
             DeleteConfirmationDialog(
@@ -149,8 +169,8 @@ fun MiranhaDetails(
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            containerColor = Venom2,
+            contentColor = Teia
         )
     ) {
         Column(
@@ -184,9 +204,16 @@ private fun MiranhaDetailsRow(
     @StringRes labelResID: Int, miranhaDetail: String, modifier: Modifier = Modifier
 ) {
     Row(modifier = modifier) {
-        Text(stringResource(labelResID))
+        Text(
+            text = stringResource(labelResID),
+            color = Teia
+        )
         Spacer(modifier = Modifier.weight(1f))
-        Text(text = miranhaDetail, fontWeight = FontWeight.Bold)
+        Text(
+            text = miranhaDetail,
+            fontWeight = FontWeight.Bold,
+            color = Teia
+        )
     }
 }
 
@@ -200,14 +227,24 @@ private fun DeleteConfirmationDialog(
         title = { Text(stringResource(R.string.attention)) },
         text = { Text(stringResource(R.string.delete_question)) },
         modifier = modifier,
+        containerColor = Venom2,
+        iconContentColor = Teia,
+        titleContentColor = Teia,
+        textContentColor = Teia,
         dismissButton = {
             TextButton(onClick = onDeleteCancel) {
-                Text(stringResource(R.string.no))
+                Text(
+                    text = stringResource(R.string.no),
+                    color = Teia
+                )
             }
         },
         confirmButton = {
             TextButton(onClick = onDeleteConfirm) {
-                Text(stringResource(R.string.yes))
+                Text(
+                    text = stringResource(R.string.yes),
+                    color = Teia
+                )
             }
         })
 }

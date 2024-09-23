@@ -19,6 +19,8 @@ import com.example.crudapp.TopAppBar
 import com.example.crudapp.ui.AppViewModelProvider
 import com.example.crudapp.ui.navigation.Destination
 import com.example.crudapp.ui.theme.CRUDAppTheme
+import com.example.crudapp.ui.theme.Teia
+import com.example.crudapp.ui.theme.Venom
 import kotlinx.coroutines.launch
 
 object MiranhaEditDestination : Destination {
@@ -47,6 +49,8 @@ fun MiranhaEditScreen(
                 navigateUp = onNavigateUp
             )
         },
+        contentColor = Teia,
+        containerColor = Venom,
         modifier = modifier
     ) { innerPadding ->
         MiranhaEntryBody(
